@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver driver;
     HelperUser helperUser;
+    HelperBoard helperBoard;
     public void init(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en");
@@ -19,6 +20,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //============================
         helperUser = new HelperUser(driver);
+        helperBoard = new HelperBoard(driver);
     }
 
     public void stop(){
@@ -28,5 +30,8 @@ public class ApplicationManager {
 
     public HelperUser getHelperUser(){
         return helperUser;
+    }
+    public HelperBoard getHelperBoard(){
+        return helperBoard;
     }
 }

@@ -20,7 +20,8 @@ public class HelperUser extends HelperBase{
         typeBase(inputEmail, user.getEmail());
         clickBase(btnLoginSubmit);
         typeBase(inputPassword, user.getPassword());
-        clickBase(btnLoginAfterPassword);
+        //clickBase(btnLoginAfterPassword);
+        clickWait(btnLoginAfterPassword, 3);
     }
     public boolean isElementPresent_btnAccount(){
         return isElementPresent(btnAccount);
