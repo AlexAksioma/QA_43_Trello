@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
 
 public class BoardsTests extends TestBase {
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void login() {
         UserDto user = UserDto.builder()
                 .email("aksiomamedved@gmail.com")
@@ -21,7 +21,7 @@ public class BoardsTests extends TestBase {
         app.getHelperUser().login(user);
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void addNewBoardPositiveTest() {
         int i = new Random().nextInt(1000);
         BoardDto board = BoardDto.builder()
@@ -40,7 +40,7 @@ public class BoardsTests extends TestBase {
         app.getHelperBoard().createNewBoard(board);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod(){
         if(app.getHelperBoard().isElementPresentByWait_btnCloseFormCreateBoard())
             app.getHelperBoard().closedFormCreateBoard();

@@ -22,3 +22,15 @@ dependencies {
 test {
     useTestNG()
 }
+
+task boardtests(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/boardstests.xml'
+    }
+}
+
+task smoketests(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/smoketests.xml'
+    }
+}

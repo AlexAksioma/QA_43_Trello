@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase{
 
-    @Test
+    @Test(groups = {"smoke","logintests"})
     public void loginPositiveTest(){
         UserDto user = UserDto.builder()
                 .email("aksiomamedved@gmail.com")
